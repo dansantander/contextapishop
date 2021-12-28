@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Form, FormControl, Nav, Navbar, Dropdown } from 'react-bootstrap';
+import { FaShoppingCart } from 'react-icons/fa';
+import { Container, Form, FormControl, Nav, Navbar, Dropdown, Badge } from 'react-bootstrap';
 
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand>Logo</Navbar.Brand>
+        <Navbar.Brand><a href="/">LOGO</a></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className="justify-content-end">
           <Form className="d-flex">
@@ -20,9 +21,10 @@ const Header = () => {
             className="my-2 my-lg-0"
             navbarScroll
           >
-          <Dropdown>
+          <Dropdown alignright>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              1
+              <FaShoppingCart color="white" fontsize="25px"/>
+              <Badge>{10}</Badge>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
