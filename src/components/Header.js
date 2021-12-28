@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Container, Form, FormControl, Nav, Navbar, Dropdown, Badge } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand><a href="/">LOGO</a></Navbar.Brand>
+        <Navbar.Brand><Link to="/">LOGO</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className="justify-content-end">
           <Form className="d-flex">
@@ -21,9 +22,9 @@ const Header = () => {
             className="my-2 my-lg-0"
             navbarScroll
           >
-          <Dropdown alignright>
+          <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              <FaShoppingCart color="white" fontsize="25px"/>
+              <FaShoppingCart color="white" fontSize="25px"/>
               <Badge>{10}</Badge>
             </Dropdown.Toggle>
 
