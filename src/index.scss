@@ -30,3 +30,18 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  width: 20%;
+  margin: 10px;
+  height: 86vh;
+}
+
+.filterContainer > span {
+  padding-bottom: 20px;
+}
