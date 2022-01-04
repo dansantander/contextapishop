@@ -4,7 +4,7 @@ import Filters from './Filters';
 import SingleProduct from './SingleProduct';
 
 const Home = () => {
-
+//CartState is the context that was exported in Context component
   const { state: { products } } = CartState();
 
   console.log(products);

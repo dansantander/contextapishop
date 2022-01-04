@@ -29,13 +29,13 @@ const Context = ({children}) => {
   )
 }
 
-// Here we are exporting the component called Context, to pass down
+// Here we are exporting the component called Context, this will allow us to pass down
 // the state and the dispatch from the cartReducer. 
 
 export default Context;
 
 // But eventhough we are exporting the component called Context, we need
-// to export the context itself, and for that, we need to use useContext
+// to export the context itself, to be able to access it and for that we need to use useContext
 
 export const CartState = () => {
   return useContext(cartContext);
