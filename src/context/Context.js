@@ -3,6 +3,9 @@ import faker from 'faker';
 import { cartReducer } from './Reducers';
 
 const cartContext = createContext();
+// Seed only renders one type of data?
+// so that it doesn´t change everytime the data is called
+faker.seed(99);
 
 const Context = ({children}) => {
   //https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n

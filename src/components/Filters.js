@@ -4,7 +4,7 @@ import Rating from './Rating';
 
 const Filters = () => {
 
-  const [rate, setRate] = useState(2);
+  const [rate, setRate] = useState(0);
 
   return (
     <div className="filterContainer">
