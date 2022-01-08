@@ -2,8 +2,16 @@ import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Container, Form, FormControl, Nav, Navbar, Dropdown, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CartState } from '../context/Context';
+import { AiFillDelete } from 'react-icons/ai';
 
 const Header = () => {
+
+  const {
+    state: { cart },
+    dispatch
+  } = CartState();
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -25,14 +33,38 @@ const Header = () => {
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               <FaShoppingCart color="white" fontSize="25px"/>
-              <Badge>{10}</Badge>
+              <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              { cart.length > 0 ? (
+              <>
+              {
+                cart.map((p) => (
+                  <span className="cartItem" key={p.id}>
+                    <img
+                      src={p.image}
+                      className="cartItemImg"
+                      alt={p.name}  
+                    />
+                    <div className="cartItemDetail">
+                      <span>{p.name}</span>
+                      <span>$ {p.price}</span>
+                    </div>
+                    <AiFillDelete
+                      fontSize="20px"
+                      style={{cursor:"pointer"}}
+                      onClick={()=>
+                        dispatch({
+                          type: "REMOVE_FROM_CART",
+                          payload: p
+                        })
+                      }
+                    />
+                  </span>
+                ))
+              }
+              </>):(<Dropdown.Item>Cart is Empty</Dropdown.Item>) }
             </Dropdown.Menu>
           </Dropdown>
           </Nav>
