@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { Container, Form, FormControl, Nav, Navbar, Dropdown, Badge } from 'react-bootstrap';
+import { Container, Form, FormControl, Nav, Navbar, Dropdown, Badge, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CartState } from '../context/Context';
 import { AiFillDelete } from 'react-icons/ai';
@@ -30,13 +30,13 @@ const Header = () => {
             className="my-2 my-lg-0"
             navbarScroll
           >
-          <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+          <Dropdown alignRight>
+            <Dropdown.Toggle variant="success" >
               <FaShoppingCart color="white" fontSize="25px"/>
               <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>
 
-            <Dropdown.Menu>
+            <Dropdown.Menu style={{ minWidth: 370 }}>
               { cart.length > 0 ? (
               <>
               {
@@ -64,7 +64,13 @@ const Header = () => {
                   </span>
                 ))
               }
-              </>):(<Dropdown.Item>Cart is Empty</Dropdown.Item>) }
+              <Link to="/cart">
+                    <Button style={{ width: "95%", margin: "0 10px" }}>
+                      Go To Cart
+                    </Button>
+                  </Link>
+              </>):(
+                <Dropdown.Item>Cart is Empty</Dropdown.Item>) }
             </Dropdown.Menu>
           </Dropdown>
           </Nav>
