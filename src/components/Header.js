@@ -63,7 +63,7 @@ const Header = () => {
                           onClick={() =>
                             dispatch({
                               type: "REMOVE_FROM_CART",
-                              payload: p,
+                              payload: p
                             })
                           }
                         />
