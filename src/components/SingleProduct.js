@@ -49,4 +49,4 @@ export default SingleProduct;
 
 // When using a comparison statement, in javascript, 0 gets converted to false (as it's falsey),
 // but every other number is truthy. Now, disabled property for a button expects a boolean value,
-// so by doing !number the one time disabled will be true is when !number = !0 = !false = true.
+// so by doing !number the one time "disabled" will be true is when !number = !0 = !false = true.

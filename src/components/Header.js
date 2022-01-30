@@ -18,6 +18,7 @@ const Header = () => {
   const {
     state: { cart },
     dispatch,
+    prodDispatch,
   } = CartState();
 
   return (
@@ -34,13 +35,23 @@ const Header = () => {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(e) =>
+                prodDispatch({
+                  type: "FILTER_BY_SEARCH",
+                  payload: e.target.value,
+                })
+              }
             />
           </Form>
           <Nav className="my-2 my-lg-0" navbarScroll>
-            <Dropdown alignRight>
+            <Dropdown>
               <Dropdown.Toggle variant="success">
-                <FaShoppingCart color="white" fontSize="25px" />
-                <Badge>{cart.length}</Badge>
+                <FaShoppingCart
+                  color="white"
+                  fontSize="25px"
+                  style={{ marginRight: "5px" }}
+                />
+                <Badge bg="warning">{cart.length}</Badge>
               </Dropdown.Toggle>
 
               <Dropdown.Menu style={{ minWidth: 370 }}>
@@ -59,11 +70,11 @@ const Header = () => {
                         </div>
                         <AiFillDelete
                           fontSize="20px"
-                          style={{ cursor: "pointer" }}
+                          style={{ cursor: "pointer", color: "red" }}
                           onClick={() =>
                             dispatch({
                               type: "REMOVE_FROM_CART",
-                              payload: p
+                              payload: p,
                             })
                           }
                         />
